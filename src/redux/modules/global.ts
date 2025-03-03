@@ -5,7 +5,7 @@ const globalState: GlobalState = {
 };
 
 const globalSlice = createSlice({
-  name: 'hooks-global',
+  name: 'admin-global',
   initialState: globalState,
   reducers: {
     setGlobalState: (state, action) => {}

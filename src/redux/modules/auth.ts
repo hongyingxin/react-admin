@@ -6,7 +6,7 @@ const authState: AuthState = {
 };
 
 const authSlice = createSlice({
-  name: 'hooks-auth',
+  name: 'admin-auth',
   initialState: authState,
   reducers: {
     setAuthMenuList: (state, action) => {

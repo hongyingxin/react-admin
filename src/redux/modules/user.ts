@@ -2,14 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UserState } from "@/redux/interface";
 
 const userState: UserState = {
-  token: "safas",
+  token: "",
   userInfo: {
     name: "Admin"
   },
 }
 
 const userSlice = createSlice({
-  name: 'hooks-user',
+  name: 'admin-user',
   initialState: userState,
   reducers: {
     setToken: (state, { payload }: PayloadAction<string>) => {
