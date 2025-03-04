@@ -1,3 +1,5 @@
+import { RouteObjectType } from "@/routers/interface";
+
 export type LayoutType = "vertical" | "classic" | "transverse" | "columns";
 
 export type LanguageType = "zh" | "en" | null;
@@ -6,6 +8,8 @@ export type LanguageType = "zh" | "en" | null;
 export interface GlobalState {
   layout: LayoutType;
   footer: boolean;
+  maximize: boolean;
+  isCollapse: boolean;
 }
 
 /* tabsMenuProps */
@@ -28,5 +32,10 @@ export interface UserState {
 
 /* AuthState */
 export interface AuthState {
-
+  authMenuList: RouteObjectType[];
+  showMenuList: RouteObjectType[];
+  flatMenuList: RouteObjectType[];
+  authButtonList: {
+    [key: string]: string[];
+  };
 }
