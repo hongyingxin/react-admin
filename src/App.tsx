@@ -1,18 +1,21 @@
-import React from 'react';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
-import { useSelector } from '@/redux';
+import { useRoutes, BrowserRouter } from 'react-router-dom';
+import routes from '@/routers';
 
-import Login from '@/views/login';
+const RouterElement = () => {
+  const element = useRoutes(routes);
+  return element;
+};
 
 const App: React.FC = () => {
-  const token = useSelector((state) => state.user.token);
-  console.log('token-----------------', token);
   return (
-    <ConfigProvider locale={zhCN}>
-      <Login />
-    </ConfigProvider>
-  )
-}
+    <BrowserRouter>
+      <ConfigProvider locale={zhCN}>
+        <RouterElement />
+      </ConfigProvider>
+    </BrowserRouter>
+  );
+};
 
 export default App;

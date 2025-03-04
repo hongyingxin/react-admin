@@ -2,6 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { GlobalState } from "@/redux/interface";
 
 const globalState: GlobalState = {
+    // layout mode (vertical | classic | transverse | columns)
+    layout: "vertical",
+    // footer
+    footer: true,
 };
 
 const globalSlice = createSlice({

@@ -4,7 +4,8 @@ export type LanguageType = "zh" | "en" | null;
 
 /* GlobalState */
 export interface GlobalState {
-
+  layout: LayoutType;
+  footer: boolean;
 }
 
 /* tabsMenuProps */
