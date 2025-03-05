@@ -4,7 +4,7 @@ import LayoutVertical from "./LayoutVertical";
 import LayoutClassic from "./LayoutClassic";
 import LayoutTransverse from "./LayoutTransverse";
 import LayoutColumns from "./LayoutColumns";
-
+import ThemeDrawer from "./components/ThemeDrawer";
 
 const LayoutIndex: React.FC = () => {
   const layout = useSelector((state: RootState) => state.global.layout);
@@ -19,6 +19,7 @@ const LayoutIndex: React.FC = () => {
   return (
     <>
       {LayoutComponents[layout]}
+      <ThemeDrawer />
     </>
   );
 };

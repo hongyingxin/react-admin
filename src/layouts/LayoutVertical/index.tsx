@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout } from "antd";
 import { useSelector } from "react-redux";
-import { RootState } from "@/store";
+import { RootState } from "@/redux";
 import ToolBarLeft from "../components/Header/ToolBarLeft";
 import ToolBarRight from "../components/Header/ToolBarRight";
 import LayoutMain from "../components/Main";
@@ -24,7 +24,7 @@ const LayoutVertical: React.FC = () => {
           <img src={logo} alt="logo" className="logo-img" />
           {!isCollapse && <h2 className="logo-text">{APP_TITLE}</h2>}
         </div>
-        <LayoutMenu />
+        <LayoutMenu mode="inline" />
       </Sider>
       <Layout>
         <Header>

@@ -17,6 +17,7 @@ export interface GlobalState {
   breadcrumb: boolean;
   breadcrumbIcon: boolean;
   language: LanguageType;
+  themeDrawerVisible: boolean;
 }
 
 /* tabsMenuProps */

@@ -24,6 +24,8 @@ const globalState: GlobalState = {
     breadcrumbIcon: true,
     // 语言
     language: "zh",
+    // 主题设置抽屉是否显示
+    themeDrawerVisible: false
 };
 
 const globalSlice = createSlice({
