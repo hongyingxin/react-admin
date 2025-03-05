@@ -10,6 +10,20 @@ const globalState: GlobalState = {
     maximize: false,
     // 是否开启侧边栏
     isCollapse: false,
+    // 是否开启暗黑主题
+    isDark: false,
+    // 是否开启手风琴效果
+    accordion: true,
+    // 是否开启侧边栏反转
+    siderInverted: false,
+    // 是否开启头部反转
+    headerInverted: false,
+    // 面包屑
+    breadcrumb: true,
+    // 面包屑图标
+    breadcrumbIcon: true,
+    // 语言
+    language: "zh",
 };
 
 const globalSlice = createSlice({

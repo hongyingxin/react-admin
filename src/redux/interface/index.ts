@@ -10,6 +10,13 @@ export interface GlobalState {
   footer: boolean;
   maximize: boolean;
   isCollapse: boolean;
+  isDark: boolean;
+  accordion: boolean;
+  siderInverted: boolean;
+  headerInverted: boolean;
+  breadcrumb: boolean;
+  breadcrumbIcon: boolean;
+  language: LanguageType;
 }
 
 /* tabsMenuProps */

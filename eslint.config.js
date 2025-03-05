@@ -26,6 +26,7 @@ export default tseslint.config(
       '@typescript-eslint/no-empty-interface': 'off',
       '@typescript-eslint/no-explicit-any': 'off', // 关闭 any 类型警告
       'no-unused-expressions': "off",  // 或者使用下面的配置允许短路表达式
+      'prefer-const': 'off',  // 关闭 prefer-const 规则
     },
   },
 )
