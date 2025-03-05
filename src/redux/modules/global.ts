@@ -25,7 +25,9 @@ const globalState: GlobalState = {
     // 语言
     language: "zh",
     // 主题设置抽屉是否显示
-    themeDrawerVisible: false
+    themeDrawerVisible: false,
+    // 是否开启菜单分割
+    menuSplit: true
 };
 
 const globalSlice = createSlice({

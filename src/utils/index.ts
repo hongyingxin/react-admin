@@ -34,3 +34,14 @@ export function getAllBreadcrumbList(
   }
   return result;
 }
+
+/**
+ * @description Obtain the first level menu
+ * @param {RouteObjectType[]} menuList - The menu list.
+ * @returns {RouteObjectType[]}
+ */
+export function getFirstLevelMenuList(menuList: RouteObjectType[]) {
+  return menuList.map(item => {
+    return { ...item, children: undefined };
+  });
+}

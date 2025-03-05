@@ -18,6 +18,7 @@ export interface GlobalState {
   breadcrumbIcon: boolean;
   language: LanguageType;
   themeDrawerVisible: boolean;
+  menuSplit: boolean;
 }
 
 /* tabsMenuProps */
