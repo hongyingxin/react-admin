@@ -45,3 +45,28 @@ export function getFirstLevelMenuList(menuList: RouteObjectType[]) {
     return { ...item, children: undefined };
   });
 }
+
+/**
+ * @description Flatten the menu using recursion for easier addition of dynamic routes.
+ * @param {Array} menuList - The menu list.
+ * @returns {Array}
+ */
+export function getFlatMenuList(menuList: RouteObjectType[]): RouteObjectType[] {
+  let newMenuList: RouteObjectType[] = JSON.parse(JSON.stringify(menuList));
+  return newMenuList.flatMap(item => [item, ...(item.children ? getFlatMenuList(item.children) : [])]);
+}
+
+/**
+ * @description Use recursion to filter out the menu items that need to be rendered in the left menu (excluding menus with isHide == true).
+ * @param {Array} menuList - The menu list.
+ * @returns {Array}
+ */
+export function getShowMenuList(menuList: RouteObjectType[]) {
+  let newMenuList: RouteObjectType[] = JSON.parse(JSON.stringify(menuList));
+  return newMenuList.filter(item => {
+    if (item.children) {
+      item.children = getShowMenuList(item.children);
+    }
+    return !item.meta?.isHide;
+  });
+}
