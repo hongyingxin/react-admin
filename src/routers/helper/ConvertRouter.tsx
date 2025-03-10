@@ -11,6 +11,11 @@ import LazyComponent from '@/components/Lazy';
 // 动态导入路由
 const modules = import.meta.glob('@/views/**/*.tsx') as Record<string, Parameters<typeof lazy>[number]>;
 
+/**
+ * @description 将菜单列表转换为 react-router 所需的格式
+ * @param {Array} authMenuList 权限菜单列表
+ * @returns {Array} react-router 所需的路由格式
+ */
 export const convertToDynamicRouterFormat = (authMenuList: RouteObjectType[]) => {
   // 1. 扁平化路由
   const flatMenuList = getFlatMenuList(authMenuList);

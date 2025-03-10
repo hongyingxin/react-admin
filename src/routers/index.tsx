@@ -21,6 +21,8 @@ const RouterProvider: React.FC = () => {
   const token = useSelector((state: RootState) => state.user.token);
   const authMenuList = useSelector((state: RootState) => state.auth.authMenuList);
 
+  console.log(authMenuList, "authMenuList")
+
   const [routerList, setRouterList] = useState<RouteObjectType[]>(wrappedStaticRouter);
 
   useEffect(() => {
