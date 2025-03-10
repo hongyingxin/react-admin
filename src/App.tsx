@@ -1,14 +1,13 @@
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, App as AppProvider } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import routes from '@/routers';
-
-const router = createBrowserRouter(routes);
+import RouterProvider from '@/routers';
 
 const App: React.FC = () => {
   return (
     <ConfigProvider locale={zhCN}>
-      <RouterProvider router={router} />
+      <AppProvider>
+        <RouterProvider />
+      </AppProvider>
     </ConfigProvider>
   );
 };

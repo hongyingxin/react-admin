@@ -6,7 +6,7 @@ import { RootState, useSelector } from "@/redux";
 import { RouteObjectType } from "./interface";
 import usePermissions from "@/hooks/usePermissions";
 import NotFound from "@/components/Error/404";
-
+import useMessage from "@/hooks/useMessage";
 const mode = import.meta.env.VITE_ROUTER_MODE as 'hash' | 'history';
 
 /**
@@ -14,6 +14,7 @@ const mode = import.meta.env.VITE_ROUTER_MODE as 'hash' | 'history';
  */
 
 const RouterProvider: React.FC = () => {
+  useMessage();
 
   const { initPermission } = usePermissions();
 

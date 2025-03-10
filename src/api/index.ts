@@ -4,9 +4,9 @@ import { LOGIN_URL } from "@/config";
 import { ResultData } from "@/api/interface";
 import { ResultEnum } from "@/enums/httpEnum";
 import { message } from "@/hooks/useMessage";
-// import { setToken } from "@/redux/modules/user";
+import { setToken } from "@/redux/modules/user";
 import { checkStatus } from "./helper/checkStatus";
-// import { store } from "@/redux";
+import { store } from "@/redux";
 
 export interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
   loading?: boolean;
@@ -39,7 +39,7 @@ class RequestHttp {
           showFullScreenLoading();
         }
         if (config.headers && typeof config.headers.set === "function") {
-          // config.headers.set("x-access-token", store.getState().user.token);
+          config.headers.set("x-access-token", store.getState().user.token);
         }
         return config;
       },
@@ -58,7 +58,7 @@ class RequestHttp {
         tryHideFullScreenLoading();
         // login failure
         if (data.code == ResultEnum.OVERDUE) {
-          // store.dispatch(setToken(""));
+          store.dispatch(setToken(""));
           message.error(data.msg);
           window.$navigate(LOGIN_URL);
           return Promise.reject(data);
