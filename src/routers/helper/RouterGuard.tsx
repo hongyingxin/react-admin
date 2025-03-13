@@ -13,6 +13,7 @@ interface RouterGuardProps {
 const RouterGuard: React.FC<RouterGuardProps> = props => {
   // 获取路由加载器返回的数据。
   const loader = useLoaderData()
+  console.log("useLoaderData-----------", loader);
   // 编程式导航
   const navigate = useNavigate()
   // 获取当前路由路径

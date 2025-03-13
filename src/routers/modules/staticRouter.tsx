@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { HOME_URL, LOGIN_URL } from '@/config';
 import { RouteObjectType } from '@/routers/interface';
+import { Loading } from "@/components/Loading";
 import RouterGuard from '@/routers/helper/RouterGuard';
 import Login from '@/views/login/index';
 import NotFound from '@/components/Error/404';
@@ -42,6 +43,11 @@ const staticRouter: RouteObjectType[] = [
       title: '500',
     },
   },
+  // 先设置 <Loading /> 组件以防止页面刷新时出现 404
+  {
+    path: "*",
+    element: <Loading />
+  }
 ]
 
 // 用高阶组件包裹静态路由

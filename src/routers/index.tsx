@@ -7,6 +7,8 @@ import { RouteObjectType } from "./interface";
 import usePermissions from "@/hooks/usePermissions";
 import NotFound from "@/components/Error/404";
 import useMessage from "@/hooks/useMessage";
+import useTheme from "@/hooks/useTheme";
+
 const mode = import.meta.env.VITE_ROUTER_MODE as 'hash' | 'history';
 
 /**
@@ -14,14 +16,15 @@ const mode = import.meta.env.VITE_ROUTER_MODE as 'hash' | 'history';
  */
 
 const RouterProvider: React.FC = () => {
+  console.log("router provider--------------");
+
+  useTheme();
   useMessage();
 
   const { initPermission } = usePermissions();
 
   const token = useSelector((state: RootState) => state.user.token);
   const authMenuList = useSelector((state: RootState) => state.auth.authMenuList);
-
-  console.log(authMenuList, "authMenuList")
 
   const [routerList, setRouterList] = useState<RouteObjectType[]>(wrappedStaticRouter);
 

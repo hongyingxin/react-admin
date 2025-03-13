@@ -27,7 +27,21 @@ const globalState: GlobalState = {
     // 主题设置抽屉是否显示
     themeDrawerVisible: false,
     // 是否开启菜单分割
-    menuSplit: true
+    menuSplit: true,
+    // 是否开启灰色模式
+    isGrey: false,
+    // 是否开启弱色模式
+    isWeak: false,
+    // 是否开启开心模式
+    isHappy: false,
+    // 是否开启紧凑模式
+    compactAlgorithm: false,
+    // 是否开启圆角模式
+    borderRadius: 4,
+    // 主色调
+    primary: "#1890ff",
+    // 组件大小
+    componentSize: "middle"
 };
 
 const globalSlice = createSlice({

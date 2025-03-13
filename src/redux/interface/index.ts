@@ -1,4 +1,5 @@
 import { RouteObjectType } from "@/routers/interface";
+import type { SizeType } from "antd/lib/config-provider/SizeContext";
 
 export type LayoutType = "vertical" | "classic" | "transverse" | "columns";
 
@@ -19,6 +20,13 @@ export interface GlobalState {
   language: LanguageType;
   themeDrawerVisible: boolean;
   menuSplit: boolean;
+  isGrey: boolean;
+  isWeak: boolean;
+  isHappy: boolean;
+  compactAlgorithm: boolean;
+  borderRadius: number;
+  primary: string;
+  componentSize: SizeType;
 }
 
 /* tabsMenuProps */
