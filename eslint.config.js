@@ -1,29 +1,73 @@
-import js from "@eslint/js";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
+import eslint from "@eslint/js";
+import tseslint from "@typescript-eslint/eslint-plugin";
+import tseslintParser from "@typescript-eslint/parser";
+import reactPlugin from "eslint-plugin-react";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
+import prettierPlugin from "eslint-plugin-prettier";
 
-export default tseslint.config(
-  { ignores: ["dist"] },
+export default [
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ["**/*.{ts,tsx}"],
+    // 全局配置
+    ignores: [],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser
+      ecmaVersion: "latest",
+      sourceType: "module",
+      parser: tseslintParser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true
+        },
+        jsxPragma: "React"
+      },
+      globals: {
+        // 全局变量设置
+        browser: true,
+        node: true,
+        es6: true
+      }
     },
+    // React 相关设置
+    settings: {
+      react: {
+        version: "detect"
+      }
+    },
+    // 启用的插件
     plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh
+      "@typescript-eslint": tseslint,
+      react: reactPlugin,
+      "react-hooks": reactHooksPlugin,
+      prettier: prettierPlugin
     },
+    // ESLint 规则配置
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-      "@typescript-eslint/no-empty-interface": "off",
-      "@typescript-eslint/no-explicit-any": "off", // 关闭 any 类型警告
-      "no-unused-expressions": "off", // 或者使用下面的配置允许短路表达式
-      "prefer-const": "off" // 关闭 prefer-const 规则
+      // ESLint 基础规则
+      "no-var": "error",
+      "no-multiple-empty-lines": ["error", { max: 1 }],
+      "no-use-before-define": "off",
+      "prefer-const": "off",
+
+      // TypeScript 特定规则
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/prefer-ts-expect-error": "error",
+      "@typescript-eslint/ban-ts-comment": "error",
+      "@typescript-eslint/no-inferrable-types": "off",
+      "@typescript-eslint/no-namespace": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/ban-types": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
+
+      // React Hooks 规则
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "off"
     }
-  }
-);
+  },
+  // 继承的配置
+  eslint.configs.recommended,
+  tseslint.configs["recommended"],
+  reactPlugin.configs["jsx-runtime"],
+  reactHooksPlugin.configs.recommended,
+  prettierPlugin.configs.recommended
+];
