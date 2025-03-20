@@ -7,6 +7,8 @@ import prettierPlugin from "eslint-plugin-prettier";
 
 export default [
   {
+    // 明确指定匹配模式，包括文件路径
+    files: ["src/**/*.{js,jsx,ts,tsx}"],
     // 添加 ignores 配置
     ignores: [
       // 常见忽略模式
@@ -77,11 +79,11 @@ export default [
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "off"
     }
-  },
+  }
   // 继承的配置
-  eslint.configs.recommended,
-  tseslint.configs["recommended"],
-  reactPlugin.configs["jsx-runtime"],
-  reactHooksPlugin.configs.recommended,
-  prettierPlugin.configs.recommended
+  // eslint.configs.recommended,
+  // tseslint.configs["recommended"],
+  // reactPlugin.configs["jsx-runtime"],
+  // reactHooksPlugin.configs.recommended,
+  // prettierPlugin.configs.recommended
 ];

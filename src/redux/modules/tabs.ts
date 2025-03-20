@@ -7,7 +7,7 @@ const tabsSlice = createSlice({
   name: "admin-tabs",
   initialState: tabsState,
   reducers: {
-    setTabsState: (state, action) => {}
+    setTabsState: () => {}
   }
 });
 

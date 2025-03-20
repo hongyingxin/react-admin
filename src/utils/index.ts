@@ -140,7 +140,7 @@ export function getUrlWithParams() {
     hash: location.hash.substring(1),
     history: location.pathname + location.search
   };
-  return url[mode];
+  return url[mode as keyof typeof url];
 }
 
 /**
@@ -186,7 +186,7 @@ export function blockDebugger() {
         ["constructor"]("debugger")
         ["call"]();
     } catch (err) {
-      console.log("Debugger is blocked");
+      console.log("Debugger is blocked", err);
     }
   }
   // 使用setInterval开始执行并返回间隔ID

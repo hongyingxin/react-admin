@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Modal } from "antd";
 
 const SearchMenu: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  console.log(isModalOpen);
   const showModal = () => setIsModalOpen(true);
 
   return (
