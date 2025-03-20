@@ -2,7 +2,7 @@ import { theme, ConfigProvider, App as AppProvider } from 'antd';
 import { HappyProvider } from "@ant-design/happy-work-theme";
 import zhCN from 'antd/locale/zh_CN';
 import RouterProvider from '@/routers';
-import { useDispatch, useSelector, RootState } from '@/redux';
+import { useSelector, RootState } from '@/redux';
 import { shallowEqual } from 'react-redux';
 
 const App: React.FC = () => {
@@ -20,10 +20,9 @@ const App: React.FC = () => {
     shallowEqual
   );
 
-  // init theme algorithm
+  // 初始化主题算法
   const algorithm = () => {
     const algorithmArr = isDark ? [theme.darkAlgorithm] : [theme.defaultAlgorithm];
-    // const algorithmArr = [theme.darkAlgorithm];
     if (compactAlgorithm) algorithmArr.push(theme.compactAlgorithm);
     return algorithmArr;
   };
