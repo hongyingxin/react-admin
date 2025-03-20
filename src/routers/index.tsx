@@ -9,7 +9,7 @@ import NotFound from "@/components/Error/404";
 import useMessage from "@/hooks/useMessage";
 import useTheme from "@/hooks/useTheme";
 
-const mode = import.meta.env.VITE_ROUTER_MODE as 'hash' | 'history';
+const mode = import.meta.env.VITE_ROUTER_MODE as "hash" | "history";
 
 /**
  * 路由文件入口
@@ -32,7 +32,7 @@ const RouterProvider: React.FC = () => {
     // 刷新页面时，没有菜单数据，因此需要先获取菜单数据
     if (!authMenuList.length) {
       initPermission(token);
-      return
+      return;
     }
     // 转换为 react-router 所需的路由结构
     const dynamicRouter = convertToDynamicRouterFormat(authMenuList);
@@ -50,6 +50,6 @@ const RouterProvider: React.FC = () => {
   };
 
   return <Router router={routerMode[mode]()} />;
-}
+};
 
 export default RouterProvider;

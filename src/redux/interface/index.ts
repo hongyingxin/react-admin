@@ -30,14 +30,10 @@ export interface GlobalState {
 }
 
 /* tabsMenuProps */
-export interface TabsListProp {
-
-}
+export interface TabsListProp {}
 
 /* TabsState */
-export interface TabsState {
-
-}
+export interface TabsState {}
 
 /* UserState */
 export interface UserState {

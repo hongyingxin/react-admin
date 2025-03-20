@@ -10,11 +10,11 @@ const authState: AuthState = {
   // 菜单权限列表 ==> 扁平化一维数组菜单，主要用于添加动态路由
   flatMenuList: [],
   // 按钮权限列表
-  authButtonList: {},
+  authButtonList: {}
 };
 
 const authSlice = createSlice({
-  name: 'admin-auth',
+  name: "admin-auth",
   initialState: authState,
   reducers: {
     setAuthButtonList(state, { payload }: PayloadAction<AuthState["authButtonList"]>) {
@@ -25,8 +25,8 @@ const authSlice = createSlice({
       state.flatMenuList = getFlatMenuList(payload);
       state.showMenuList = getShowMenuList(payload);
     }
-  },
-})
+  }
+});
 
 export const { setAuthButtonList, setAuthMenuList } = authSlice.actions;
 export default authSlice.reducer;

@@ -7,7 +7,19 @@ import ColorPicker from "./components/ColorPicker";
 
 const ThemeDrawer: React.FC = () => {
   const dispatch = useDispatch();
-  const { layout, themeDrawerVisible, menuSplit, siderInverted, headerInverted, isDark, isGrey, isWeak, isHappy, compactAlgorithm, borderRadius } = useSelector((state: RootState) => state.global);
+  const {
+    layout,
+    themeDrawerVisible,
+    menuSplit,
+    siderInverted,
+    headerInverted,
+    isDark,
+    isGrey,
+    isWeak,
+    isHappy,
+    compactAlgorithm,
+    borderRadius
+  } = useSelector((state: RootState) => state.global);
   return (
     <Drawer
       title="主题配置"
@@ -18,7 +30,7 @@ const ThemeDrawer: React.FC = () => {
       open={themeDrawerVisible}
       className="theme-drawer"
       onClose={() => dispatch(setGlobalState({ key: "themeDrawerVisible", value: false }))}
-      >
+    >
       <Divider className="divider">
         <LayoutOutlined />
         布局样式
@@ -171,5 +183,3 @@ const ThemeDrawer: React.FC = () => {
 };
 
 export default ThemeDrawer;
-
-

@@ -1,4 +1,4 @@
-import { configureStore,combineReducers } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch as useReduxDispatch, useSelector as useReduxSelector } from "react-redux";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -13,15 +13,15 @@ const reducer = combineReducers({
   global,
   user,
   auth,
-  tabs,
+  tabs
 });
 
 // 持久化配置
 const persistConfig = {
-  key: 'redux-state',
+  key: "redux-state",
   storage,
   blacklist: ["auth"]
-}
+};
 
 // 包装 reducer
 const persistReducerConfig = persistReducer(persistConfig, reducer);
@@ -29,11 +29,12 @@ const persistReducerConfig = persistReducer(persistConfig, reducer);
 // store
 export const store = configureStore({
   reducer: persistReducerConfig,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-    serializableCheck: false,
-  }),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false
+    }),
   // 开启调试
-  devTools: true,
+  devTools: true
 });
 
 // 持久化 store
@@ -44,6 +45,3 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export const useSelector: TypedUseSelectorHook<RootState> = useReduxSelector;
 export const useDispatch = () => useReduxDispatch<AppDispatch>();
-
-
-

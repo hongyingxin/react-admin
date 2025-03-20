@@ -5,11 +5,11 @@ const userState: UserState = {
   token: "",
   userInfo: {
     name: "Admin"
-  },
-}
+  }
+};
 
 const userSlice = createSlice({
-  name: 'admin-user',
+  name: "admin-user",
   initialState: userState,
   reducers: {
     setToken: (state, { payload }: PayloadAction<string>) => {
@@ -17,9 +17,9 @@ const userSlice = createSlice({
     },
     setUserInfo: (state, { payload }: PayloadAction<{ name: string }>) => {
       state.userInfo = payload;
-    },
+    }
   }
-})
+});
 
 export const { setToken, setUserInfo } = userSlice.actions;
 export default userSlice.reducer;

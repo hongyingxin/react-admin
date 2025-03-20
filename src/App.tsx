@@ -1,12 +1,11 @@
-import { theme, ConfigProvider, App as AppProvider } from 'antd';
+import { theme, ConfigProvider, App as AppProvider } from "antd";
 import { HappyProvider } from "@ant-design/happy-work-theme";
-import zhCN from 'antd/locale/zh_CN';
-import RouterProvider from '@/routers';
-import { useSelector, RootState } from '@/redux';
-import { shallowEqual } from 'react-redux';
+import zhCN from "antd/locale/zh_CN";
+import RouterProvider from "@/routers";
+import { useSelector, RootState } from "@/redux";
+import { shallowEqual } from "react-redux";
 
 const App: React.FC = () => {
-
   const { isDark, primary, isHappy, componentSize, compactAlgorithm, borderRadius } = useSelector(
     (state: RootState) => ({
       isDark: state.global.isDark,
@@ -26,11 +25,11 @@ const App: React.FC = () => {
     if (compactAlgorithm) algorithmArr.push(theme.compactAlgorithm);
     return algorithmArr;
   };
-  
+
   return (
-    <ConfigProvider 
-      locale={zhCN} 
-      componentSize={componentSize} 
+    <ConfigProvider
+      locale={zhCN}
+      componentSize={componentSize}
       theme={{
         token: { colorPrimary: primary, borderRadius },
         algorithm: algorithm()

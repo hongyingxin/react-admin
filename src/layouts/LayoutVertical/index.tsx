@@ -14,13 +14,12 @@ const { Header, Sider } = Layout;
 const APP_TITLE = import.meta.env.VITE_GLOB_APP_TITLE;
 
 const LayoutVertical: React.FC = () => {
-
   const isCollapse = useSelector((state: RootState) => state.global.isCollapse);
 
   return (
     <section className="layout-vertical">
       <Sider width={200} collapsed={isCollapse}>
-      <div className="logo">
+        <div className="logo">
           <img src={logo} alt="logo" className="logo-img" />
           {!isCollapse && <h2 className="logo-text">{APP_TITLE}</h2>}
         </div>
@@ -34,7 +33,7 @@ const LayoutVertical: React.FC = () => {
         <LayoutMain />
       </Layout>
     </section>
-  )
+  );
 };
 
 export default LayoutVertical;

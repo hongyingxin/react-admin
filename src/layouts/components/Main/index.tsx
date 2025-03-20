@@ -1,8 +1,8 @@
-import React, { useEffect, createRef } from 'react';
-import { Layout } from 'antd';
+import React, { useEffect, createRef } from "react";
+import { Layout } from "antd";
 // 防抖函数
-import { useDebounceFn } from 'ahooks';
-import { useLocation,useOutlet } from "react-router-dom";
+import { useDebounceFn } from "ahooks";
+import { useLocation, useOutlet } from "react-router-dom";
 import { useSelector, useDispatch } from "@/redux";
 import { setGlobalState } from "@/redux/modules/global";
 import { RouteObjectType } from "@/routers/interface";
@@ -23,9 +23,9 @@ const LayoutMain: React.FC = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
-  const maximize = useSelector((state) => state.global.maximize);
-  const isCollapse = useSelector((state) => state.global.isCollapse);
-  const flatMenuList = useSelector((state) => state.auth.flatMenuList);
+  const maximize = useSelector(state => state.global.maximize);
+  const isCollapse = useSelector(state => state.global.isCollapse);
+  const flatMenuList = useSelector(state => state.auth.flatMenuList);
 
   // 监听窗口变化，折叠菜单
   const { run } = useDebounceFn(
@@ -64,8 +64,7 @@ const LayoutMain: React.FC = () => {
       </SwitchTransition>
       <LayoutFooter />
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default LayoutMain;
-

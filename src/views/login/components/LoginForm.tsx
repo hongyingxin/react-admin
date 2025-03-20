@@ -3,7 +3,7 @@ import { Button, Form, Input } from "antd";
 import { loginApi } from "@/api/modules/login";
 import { ReqLogin } from "@/api/interface";
 import type { FormInstance, FormProps } from "antd/es/form";
-import { LockOutlined, UserOutlined, CloseCircleOutlined,CheckCircleFilled } from "@ant-design/icons";
+import { LockOutlined, UserOutlined, CloseCircleOutlined, CheckCircleFilled } from "@ant-design/icons";
 import md5 from "md5";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -22,13 +22,13 @@ const LoginForm: React.FC = () => {
   const formRef = React.useRef<FormInstance>(null);
   const [loading, setLoading] = useState(false);
 
-  const key = "loading"
+  const key = "loading";
 
   const onFinish = async (values: ReqLogin) => {
     try {
       // loading
       setLoading(true);
-      console.log(message, "message")
+      console.log(message, "message");
       message.open({ key, content: "登录中...", type: "loading" });
       // user login
       const { data } = await loginApi({ ...values, password: md5(values.password) });
@@ -43,7 +43,6 @@ const LoginForm: React.FC = () => {
       });
 
       navigate(HOME_URL);
-
     } finally {
       setLoading(false);
       message.destroy(key);
