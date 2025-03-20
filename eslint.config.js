@@ -7,8 +7,22 @@ import prettierPlugin from "eslint-plugin-prettier";
 
 export default [
   {
-    // 全局配置
-    ignores: [],
+    // 添加 ignores 配置
+    ignores: [
+      // 常见忽略模式
+      "**/node_modules/*",
+      "**/dist/*",
+      "**/build/*",
+      "**/.git/*",
+      // 特定文件
+      "vite.config.ts",
+      "*.config.js",
+      // 特定目录下所有文件
+      "public/*",
+      // 特定文件类型
+      "**/*.min.js",
+      "**/*.d.ts"
+    ],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
