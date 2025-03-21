@@ -6,11 +6,6 @@ import { useSelector, RootState } from "@/redux";
 import { shallowEqual } from "react-redux";
 
 const App: React.FC = () => {
-  let test = "111";
-  console.log(test);
-
-  // const name = "test1";
-  // const name = "test2";
   const { isDark, primary, isHappy, componentSize, compactAlgorithm, borderRadius } = useSelector(
     (state: RootState) => ({
       isDark: state.global.isDark,

@@ -61,7 +61,7 @@ export default [
       "no-var": "error",
       "no-multiple-empty-lines": ["error", { max: 1 }],
       "no-use-before-define": "off",
-      "prefer-const": "off",
+      "prefer-const": "error",
 
       // TypeScript 特定规则
       "@typescript-eslint/no-unused-vars": "error",
