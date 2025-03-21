@@ -15,6 +15,15 @@
     "prepare": "husky",
     "test": "echo \"Running tests...\""
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix --quiet",
+      "prettier --write"
+    ],
+    "src/**/*.{less,css}": [
+      "stylelint --fix"
+    ]
+  },
   "dependencies": {
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/icons": "^5.6.1",
