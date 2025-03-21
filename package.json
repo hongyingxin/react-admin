@@ -11,6 +11,7 @@
     "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./src",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:lint-staged": "lint-staged",
     "prepare": "husky",
     "test": "echo \"Running tests...\""
   },
@@ -54,6 +55,7 @@
     "globals": "^15.14.0",
     "husky": "^9.1.7",
     "less": "^4.2.2",
+    "lint-staged": "^15.5.0",
     "postcss": "^8.5.3",
     "postcss-html": "^1.8.0",
     "postcss-less": "^6.0.0",
