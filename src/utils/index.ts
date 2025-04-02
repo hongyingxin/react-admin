@@ -10,8 +10,8 @@ const mode = import.meta.env.VITE_ROUTER_MODE;
  * @returns {String}
  */
 export function getTimeState() {
-  let timeNow = new Date();
-  let hours = timeNow.getHours();
+  const timeNow = new Date();
+  const hours = timeNow.getHours();
   if (hours >= 6 && hours <= 10) return `早上好 ⛅`;
   if (hours >= 10 && hours <= 14) return `中午好 🌞`;
   if (hours >= 14 && hours <= 18) return `下午好 🌞`;
@@ -26,7 +26,7 @@ export function getTimeState() {
  * @return {Number}
  */
 export function randomNum(min: number, max: number): number {
-  let num = Math.floor(Math.random() * (min - max) + max);
+  const num = Math.floor(Math.random() * (min - max) + max);
   return num;
 }
 
@@ -53,7 +53,7 @@ export function convertToSixDigitHexColor(str: string) {
  * @returns {String}
  */
 export function getBrowserLang() {
-  let browserLang = navigator.language ? navigator.language : navigator.browserLanguage;
+  const browserLang = navigator.language ? navigator.language : navigator.browserLanguage;
   let defaultBrowserLang = "";
   if (["cn", "zh", "zh-cn"].includes(browserLang.toLowerCase())) defaultBrowserLang = "zh";
   else defaultBrowserLang = "en";
@@ -66,7 +66,7 @@ export function getBrowserLang() {
  * @returns {Array}
  */
 export function getFlatMenuList(menuList: RouteObjectType[]): RouteObjectType[] {
-  let newMenuList: RouteObjectType[] = JSON.parse(JSON.stringify(menuList));
+  const newMenuList: RouteObjectType[] = JSON.parse(JSON.stringify(menuList));
   return newMenuList.flatMap(item => [item, ...(item.children ? getFlatMenuList(item.children) : [])]);
 }
 
@@ -76,7 +76,7 @@ export function getFlatMenuList(menuList: RouteObjectType[]): RouteObjectType[] 
  * @returns {Array}
  */
 export function getShowMenuList(menuList: RouteObjectType[]) {
-  let newMenuList: RouteObjectType[] = JSON.parse(JSON.stringify(menuList));
+  const newMenuList: RouteObjectType[] = JSON.parse(JSON.stringify(menuList));
   return newMenuList.filter(item => {
     item.children?.length && (item.children = getShowMenuList(item.children));
     return !item.meta?.isHide;
@@ -150,8 +150,8 @@ export function getUrlWithParams() {
  */
 export function getOpenKeys(path: string): string[] {
   let currentKey: string = "";
-  let openKeys: string[] = [];
-  let pathSegments: string[] = path.split("/").map((segment: string) => "/" + segment);
+  const openKeys: string[] = [];
+  const pathSegments: string[] = path.split("/").map((segment: string) => "/" + segment);
   for (let i: number = 1; i < pathSegments.length - 1; i++) {
     currentKey += pathSegments[i];
     openKeys.push(currentKey);

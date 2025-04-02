@@ -27,13 +27,23 @@ export interface GlobalState {
   borderRadius: number;
   primary: string;
   componentSize: SizeType;
+  tabs: boolean;
+  tabsIcon: boolean;
+  tabsDrag: boolean;
 }
 
 /* tabsMenuProps */
-export interface TabsListProp {}
+export interface TabsListProp {
+  icon: string;
+  title: string;
+  path: string;
+  closable: boolean;
+}
 
 /* TabsState */
-export interface TabsState {}
+export interface TabsState {
+  tabsList: TabsListProp[];
+}
 
 /* UserState */
 export interface UserState {

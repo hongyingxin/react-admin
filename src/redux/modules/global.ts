@@ -41,7 +41,13 @@ const globalState: GlobalState = {
   // 主色调
   primary: "#1890ff",
   // 组件大小
-  componentSize: "middle"
+  componentSize: "middle",
+  // tabs
+  tabs: true,
+  // tabs icon
+  tabsIcon: true,
+  // tabs drag
+  tabsDrag: true
 };
 
 const globalSlice = createSlice({
