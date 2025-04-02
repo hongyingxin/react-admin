@@ -1,5 +1,6 @@
-import React, { useEffect, createRef } from "react";
+import React, { useEffect, createRef, useContext } from "react";
 import { Layout } from "antd";
+import { RefreshContext } from "@/context/Refresh";
 // 防抖函数
 import { useDebounceFn } from "ahooks";
 import { useLocation, useOutlet } from "react-router-dom";
@@ -22,6 +23,7 @@ const LayoutMain: React.FC = () => {
   const outlet = useOutlet();
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+  const { outletShow } = useContext(RefreshContext);
 
   const maximize = useSelector(state => state.global.maximize);
   const isCollapse = useSelector(state => state.global.isCollapse);
@@ -59,7 +61,7 @@ const LayoutMain: React.FC = () => {
       <LayoutTabs />
       <SwitchTransition>
         <CSSTransition classNames="fade" key={pathname} nodeRef={nodeRef} timeout={300} exit={false} unmountOnExit>
-          <Content ref={nodeRef}>{outlet}</Content>
+          <Content ref={nodeRef}>{outletShow && outlet}</Content>
         </CSSTransition>
       </SwitchTransition>
       <LayoutFooter />

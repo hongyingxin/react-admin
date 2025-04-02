@@ -4,6 +4,7 @@ import zhCN from "antd/locale/zh_CN";
 import RouterProvider from "@/routers";
 import { useSelector, RootState } from "@/redux";
 import { shallowEqual } from "react-redux";
+import { RefreshProvider } from "@/context/Refresh";
 
 const App: React.FC = () => {
   console.log("App");
@@ -38,7 +39,9 @@ const App: React.FC = () => {
     >
       <HappyProvider disabled={!isHappy}>
         <AppProvider>
-          <RouterProvider />
+          <RefreshProvider>
+            <RouterProvider />
+          </RefreshProvider>
         </AppProvider>
       </HappyProvider>
     </ConfigProvider>

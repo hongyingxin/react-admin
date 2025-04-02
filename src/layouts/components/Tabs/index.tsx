@@ -10,6 +10,7 @@ import { addTab, removeTab, setTabsList } from "@/redux/modules/tabs";
 import { TabsListProp } from "@/redux/interface";
 import { MetaProps } from "@/routers/interface";
 import { Icon } from "@/components/Icon";
+import MoreButton from "./components/MoreButton";
 import "./index.less";
 
 type TargetKey = string | React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>;
@@ -130,6 +131,7 @@ const LayoutTabs: React.FC = () => {
           activeKey={path}
           onEdit={onEdit}
           onChange={onChange}
+          tabBarExtraContent={<MoreButton path={path} />}
           {...(tabsDrag && {
             renderTabBar: (tabBarProps, DefaultTabBar) => (
               <DndContext sensors={[sensor]} onDragEnd={onDragEnd}>
