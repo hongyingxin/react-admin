@@ -38,7 +38,7 @@ const BreadcrumbNav: React.FC = () => {
     const meta = matches[matches.length - 1].data as MetaProps;
     if (!meta?.key) return;
 
-    let breadcrumbList = breadcrumbAllList[meta.key] || [];
+    const breadcrumbList = breadcrumbAllList[meta.key] || [];
 
     // 首页不需要面包屑，可以删除以下判断
     if (breadcrumbList[0]?.path !== HOME_URL) {
