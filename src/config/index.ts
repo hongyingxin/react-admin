@@ -1,10 +1,10 @@
 // 全局默认配置项
 
-// Home address
+// 主页地址
 export const HOME_URL: string = "/home/index";
 
-// login page address
+// 登录页面地址
 export const LOGIN_URL: string = "/login";
 
-// Routing whitelist address (must be in a locally existing routing staticRouter.ts)
+// 路由白名单地址 (必须存在于本地存在的路由 staticRouter.ts)
 export const ROUTER_WHITE_LIST: string[] = ["/500"];

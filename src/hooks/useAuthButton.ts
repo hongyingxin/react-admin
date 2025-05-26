@@ -2,7 +2,7 @@ import { RootState, useSelector } from "@/redux";
 import { getMenuByPath } from "@/utils";
 
 /**
- * @description  Use auth button hook
+ * @description  使用权限按钮钩子
  */
 const useAuthButton = () => {
   const authButtonList = useSelector((state: RootState) => state.auth.authButtonList);
